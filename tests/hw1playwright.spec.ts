@@ -12,4 +12,4 @@ test('test', async ({ page }) => {
   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   await expect(page.getByText('Products')).toBeVisible();
   await expect(page.locator('.inventory_item')).toHaveCount(6);
-});
+}); 

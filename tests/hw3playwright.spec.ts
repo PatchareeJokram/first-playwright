@@ -8,7 +8,7 @@ test('test', async ({ page }) => {
   await page.locator('[data-test="password"]').fill('secretsauce');
   await page.locator('[data-test="login-button"]').click();
   const errorMessage = page.locator('[data-test="error"]');
-  await expect(errorMessage).toBeVisible();
+  await expect(errorMessage).toBeVisible();  
 
   await expect(errorMessage).toContainText('do not match');
 

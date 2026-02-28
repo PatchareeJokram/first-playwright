@@ -19,4 +19,4 @@ test('test', async ({ page }) => {
 
   await page.locator('[data-test="remove-sauce-labs-backpack"]').click();
   await expect(page.locator('.shopping_cart_badge')).toHaveText('1'); 
-});
+}); 
