@@ -13,6 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  timeout: 30_000,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,7 +30,10 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+      baseURL: 'https://www.saucedemo.com', // ✅ ตั้งครั้งเดียว ใช้ได้ทุก test
+      screenshot: 'only-on-failure',       // ถ่ายภาพเมื่อ Test fail
+      video: 'retain-on-failure',          // บันทึกวิดีโอเมื่อ Test fail
+      trace: 'retain-on-failure',           // บันทึก Trace สำหรับ Debug
   },
 
   /* Configure projects for major browsers */
@@ -48,7 +52,17 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-
+    {
+      name: 'ui-tests',
+      testMatch: '**/ui/*.spec.ts',      // tests/ui/*.spec.ts
+    },
+    {
+      name: 'api-tests',
+      testMatch: '**/api/*.spec.ts',     // tests/api/*.spec.ts
+      use: {
+        baseURL: 'https://api.escuelajs.co/api/v1',
+      }
+    }
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
