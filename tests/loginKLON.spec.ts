@@ -1,18 +1,15 @@
 import { test, expect } from '@playwright/test';
 import { LoginKLONPage } from '../pages/loginKLON-page';
-// import { InventoryPage } from '../pages/inventory-page';
 
 const VALID_EMAIL     = 'exist@gmail.com';
 const VALID_PASSWORD = '123456';
 
-test.describe('🔐 Login Feature', () => {
+test.describe('Login Feature', () => {
   let loginKLONPage: LoginKLONPage;
-//   let inventoryPage: InventoryPage;
 
   // beforeEach: ทำก่อนทุก Test — ไม่ต้องเขียน goto() ซ้ำในทุก test
   test.beforeEach(async ({ page }) => {
     loginKLONPage     = new LoginKLONPage(page);
-    // inventoryPage = new InventoryPage(page);
     await loginKLONPage.goto();  // ทุก Test เริ่มที่หน้า Login
   });
 
