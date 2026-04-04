@@ -30,7 +30,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-      baseURL: 'https://poetry-contest-platform.vercel.app/login', // ✅ ตั้งครั้งเดียว ใช้ได้ทุก test
+      baseURL: 'https://poetry-contest-platform.vercel.app', // ✅ ตั้งครั้งเดียว ใช้ได้ทุก test
       screenshot: 'only-on-failure',       // ถ่ายภาพเมื่อ Test fail
       video: 'retain-on-failure',          // บันทึกวิดีโอเมื่อ Test fail
       trace: 'retain-on-failure',           // บันทึก Trace สำหรับ Debug
